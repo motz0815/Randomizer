@@ -1,0 +1,51 @@
+plugins {
+    id "java"
+    id "application"
+    id "io.freefair.lombok" version "6.0.0-m2"
+    id "com.github.johnrengelman.shadow" version "6.1.0"
+}
+
+mainClassName = "xyz.motz.randomizer.main.Randomizer"
+
+version = "2.0.0-SNAPSHOT"
+
+sourceCompatibility = 11
+
+task copyDocs(type: Copy) {
+    from file('build\\libs\\' + getApplicationName() + '-' + getVersion() + '-all.jar')
+    into file('D:\\Users\\Matthias\\Desktop\\Development\\debugserver\\purpur1.16.5\\plugins')
+}
+
+repositories {
+    mavenCentral()
+
+    maven {
+        url "https://hub.spigotmc.org/nexus/content/repositories/snapshots/"
+
+        content {
+            includeGroup "org.bukkit"
+            includeGroup "org.spigotmc"
+        }
+    }
+    maven {
+        url "https://jitpack.io"
+    }
+    maven {
+        url "https://repo.codemc.org/repository/maven-public/"
+    }
+    maven {
+        name "sonatype-oss-snapshots"
+        url "https://oss.sonatype.org/content/repositories/snapshots/"
+    }
+}
+
+dependencies {
+    compileOnly 'org.spigotmc:spigot-api:1.17-R0.1-SNAPSHOT'
+
+    implementation "dev.jorel.CommandAPI:commandapi-shade:5.12"
+
+    compileOnly "org.projectlombok:lombok:1.18.14"
+    annotationProcessor "org.projectlombok:lombok:1.18.14"
+}
+
+compileJava.options.encoding = "UTF-8"

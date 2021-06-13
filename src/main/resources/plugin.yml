@@ -1,0 +1,5 @@
+name: Randomizer
+main: xyz.motz.randomizer.main.Randomizer
+author: motz0815
+version: 2.0.0
+api-version: 1.13

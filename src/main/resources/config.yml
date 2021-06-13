@@ -1,0 +1,11 @@
+# Randomizer 2.0.0 by motz0815
+# Here, the random block - item partners are listed
+# Changing this per hand is not recommended, although if you do it correctly, it should work.
+# If nothing except "partners:" is in here, you haven't typed the command "/randomizer shuffle" on this server once.
+#
+# The Plugin is activated by default, if you want to deactivate it, use the ingame command "/randomizer stop"
+# Adjusting this value here will not change anything until you reload or restart the server itself.
+
+activated: true
+
+partners:
