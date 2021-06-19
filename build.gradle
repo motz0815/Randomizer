@@ -11,11 +11,6 @@ version = "2.0.1"
 
 sourceCompatibility = 11
 
-task copyDocs(type: Copy) {
-    from file('build\\libs\\' + getApplicationName() + '-' + getVersion() + '-all.jar')
-    into file('D:\\Users\\Matthias\\Desktop\\Development\\debugserver\\purpur1.16.5\\plugins')
-}
-
 repositories {
     mavenCentral()
 
