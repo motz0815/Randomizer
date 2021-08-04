@@ -9,11 +9,7 @@ plugins {
 
 mainClassName = "xyz.motz.randomizer.main.Randomizer"
 
-<<<<<<< Updated upstream
-version = "2.0.2"
-=======
 version = "3.0.0"
->>>>>>> Stashed changes
 
 sourceCompatibility = 16
 
