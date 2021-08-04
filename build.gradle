@@ -1,3 +1,5 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
 plugins {
     id "java"
     id "application"
@@ -7,9 +9,13 @@ plugins {
 
 mainClassName = "xyz.motz.randomizer.main.Randomizer"
 
+<<<<<<< Updated upstream
 version = "2.0.2"
+=======
+version = "3.0.0"
+>>>>>>> Stashed changes
 
-sourceCompatibility = 11
+sourceCompatibility = 16
 
 repositories {
     mavenCentral()
@@ -37,10 +43,17 @@ repositories {
 dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.17.1-R0.1-SNAPSHOT'
 
-    implementation "dev.jorel.CommandAPI:commandapi-shade:5.12"
+    implementation "dev.jorel.CommandAPI:commandapi-shade:6.2.0"
 
-    compileOnly "org.projectlombok:lombok:1.18.14"
-    annotationProcessor "org.projectlombok:lombok:1.18.14"
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+}
+
+processResources() {
+    duplicatesStrategy = 'INCLUDE'
+    from(sourceSets.main.resources.srcDirs) {
+        filter ReplaceTokens, tokens: [version: version]
+    }
 }
 
 compileJava.options.encoding = "UTF-8"

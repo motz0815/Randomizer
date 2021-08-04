@@ -29,7 +29,7 @@ public class Randomizer extends JavaPlugin implements Listener {
     public void onLoad() {
 
         CommandAPIConfig commandAPIConfig = new CommandAPIConfig();
-        commandAPIConfig.setVerboseOutput(false);
+        commandAPIConfig.verboseOutput(false);
 
         CommandAPI.onLoad(commandAPIConfig);
     }
