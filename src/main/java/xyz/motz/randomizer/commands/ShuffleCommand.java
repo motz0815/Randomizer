@@ -1,24 +1,18 @@
 package xyz.motz.randomizer.commands;
 
-import dev.jorel.commandapi.CommandAPICommand;
-import dev.jorel.commandapi.executors.CommandExecutor;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import xyz.motz.randomizer.main.Randomizer;
 
 import java.util.Random;
 
-public class ShuffleCommand extends CommandAPICommand implements CommandExecutor {
-
-    public ShuffleCommand() {
-        super("shuffle");
-        withPermission("randomizer.shuffle");
-        executes(this);
-    }
+public class ShuffleCommand implements CommandExecutor {
 
     @Override
-    public void run(CommandSender sender, Object[] args) {
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Randomizer.getPlugin().remaining.clear();
 
         for (Material mat : Material.values()) {
@@ -48,5 +42,6 @@ public class ShuffleCommand extends CommandAPICommand implements CommandExecutor
 
         sender.sendMessage(ChatColor.AQUA + "[RANDOMIZER] " + ChatColor.GREEN
                 + "The Random Pairs were successfully regenerated!");
+        return true;
     }
 }

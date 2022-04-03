@@ -1,21 +1,15 @@
 package xyz.motz.randomizer.commands;
 
-import dev.jorel.commandapi.CommandAPICommand;
-import dev.jorel.commandapi.executors.CommandExecutor;
 import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import xyz.motz.randomizer.main.Randomizer;
 
-public class CheckCommand extends CommandAPICommand implements CommandExecutor {
-
-    public CheckCommand() {
-        super("check");
-        withPermission("randomizer.toggle");
-        executes(this);
-    }
+public class CheckCommand implements CommandExecutor {
 
     @Override
-    public void run(CommandSender sender, Object[] args) {
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (Randomizer.getPlugin().enabled) {
             sender.sendMessage(ChatColor.AQUA + "[RANDOMIZER] " + ChatColor.GREEN
                     + "The Randomizer is currently activated!");
@@ -23,5 +17,6 @@ public class CheckCommand extends CommandAPICommand implements CommandExecutor {
             sender.sendMessage(ChatColor.AQUA + "[RANDOMIZER] " + ChatColor.GREEN
                     + "The Randomizer is currently deactivated!");
         }
+        return true;
     }
 }
