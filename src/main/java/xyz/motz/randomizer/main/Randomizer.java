@@ -1,7 +1,5 @@
 package xyz.motz.randomizer.main;
 
-import dev.jorel.commandapi.CommandAPI;
-import dev.jorel.commandapi.CommandAPIConfig;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -11,7 +9,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
-import xyz.motz.randomizer.commands.RandomizerCommand;
+import xyz.motz.randomizer.commands.*;
+import xyz.motz.randomizer.listeners.CommandTabListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,25 +26,18 @@ public class Randomizer extends JavaPlugin implements Listener {
 
     @Override
     public void onLoad() {
-
-        CommandAPIConfig commandAPIConfig = new CommandAPIConfig();
-        commandAPIConfig.verboseOutput(false);
-
-        CommandAPI.onLoad(commandAPIConfig);
+        plugin = this;
     }
 
     @Override
     public void onEnable() {
-        plugin = this;
-
-        CommandAPI.onEnable(this);
-
         Bukkit.getPluginManager().registerEvents(this, this);
+        Bukkit.getPluginManager().registerEvents(new CommandTabListener(), this);
+
+        getCommand("randomizer").setExecutor(new RandomizerCommand());
 
         this.getConfig().options().copyDefaults();
         saveDefaultConfig();
-
-        new RandomizerCommand().register();
     }
 
     @EventHandler

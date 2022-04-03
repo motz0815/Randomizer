@@ -2,6 +2,11 @@ name: Randomizer
 main: xyz.motz.randomizer.main.Randomizer
 author: motz0815
 version: @version@
-api-version: 1.18
+api-version: @apiVersion@
 
 website: "https://www.spigotmc.org/resources/randomizer-1-13-1-17-x.77069/"
+
+commands:
+  randomizer:
+    description: "Prints a little help message."
+    usage: "/randomizer"
