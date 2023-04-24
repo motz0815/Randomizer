@@ -7,8 +7,8 @@
 A Minecraft Plugin for some extra survival challenge
 
 For documentation and Usage see the spigot or Hangar page: 
-https://www.spigotmc.org/resources/randomizer-1-13-2-1-18-2.77069/
-https://hangar.papermc.io/motz/Randomizer
+- https://www.spigotmc.org/resources/randomizer-1-13-2-1-18-2.77069/
+- https://hangar.papermc.io/motz/Randomizer
 
 ## Contributing
 ### Building it yourself
